@@ -4,6 +4,7 @@ const Searchbox =  ({searchfiled,searchChange}) => {
     return (
         <div>
             <input
+                className= 'searchfield'
                 type='search'
                 onChange={searchChange}/>
         </div>

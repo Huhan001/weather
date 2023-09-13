@@ -6,35 +6,52 @@ import Searchbox from "../components/Search";
 
 const App = () => {
 
-  const [weather,updateWeather] = useState([])
-  const [searchvalue,searchChange] = useState('')
+//  names for the api fetching
+  const [country, countryUpdate] = useState([]);
+  const [weather,updateWeather] = useState([]);
+  const [searchvalue,searchChange] = useState('');
 
   const place = 'brazil';
   
+//  hooks effect fetching
   useEffect(() => {
       const fetching = async () => {
         const calling = await fetch(`https://api.weatherapi.com/v1/current.json?key=c2e9e7a0f7504931860185111231209 &q=${place}&aqi=no`);
         const answer = await calling.json();
         updateWeather(answer);
       };
+
       fetching();
   }, []);
   
-  const updating = (event) => {
-    searchChange(event.target.value)
-  }
+//  hooks effect fetching
+  useEffect(() => {
+    const fetchwith = async () => {
+      const calling = await fetch('https://restcountries.com/v3.1/all');
+      const nations = await calling.json();
+      countryUpdate(nations);
+    };
+
+    fetchwith();
+  }, []);
+
   
-  console.log(Object.entries(weather))
+  const onsearch = (event) => {
+    searchChange(event.target.value);
+  };
+
+  const countryNames = country.map(place => place.name.common);
+  const filteredCountry = countryNames.filter(names => names.toLowerCase().includes(searchvalue))
   
-  
+  console.log(filteredCountry);
+  console.log(weather);
   
   return (
-  <div className= 'one'>
-    <h1>Country<br></br></h1>
-    <Searchbox searchChange={updating} />
-  </div>
+    <div className= 'container'>
+      <h3> Search</h3>
+      <Searchbox searchChange = {onsearch} />
+    </div>
   )
-  
   
 }
 

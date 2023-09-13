@@ -1,9 +1,28 @@
-.one {
+.container {
+    margin-top: 20px;
     display: flex;
+    flex-direction: column;
     
     justify-content: space-evenly;
     align-items: center;
     
-    padding: 30px;
+    padding: 10px;
+
+    border: 2px solid orangered;
+    box-shadow: 5px 5px lightgray;
+    width: auto;
     
+    border-radius: 5px 5px 20px;
+    font-family: Menlo;
+}
+
+.searchfield {
+
+    width: 250px;
+    height: 40px;
+    border-radius: 5px 5px 20px;
+    text-align: center;
+
+    box-shadow: 5px 5px whitesmoke;
+    border: 2px solid orange;
 }
