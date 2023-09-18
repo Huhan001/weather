@@ -10,20 +10,8 @@ const App = () => {
   const [country, countryUpdate] = useState([]);
   const [weather,updateWeather] = useState([]);
   const [searchvalue,searchChange] = useState('');
+  const [singleCountry, manyOther] = useState([]);
 
-  const place = 'brazil';
-  
-//  hooks effect fetching
-  useEffect(() => {
-      const fetching = async () => {
-        const calling = await fetch(`https://api.weatherapi.com/v1/current.json?key=c2e9e7a0f7504931860185111231209 &q=${place}&aqi=no`);
-        const answer = await calling.json();
-        updateWeather(answer);
-      };
-
-      fetching();
-  }, []);
-  
 //  hooks effect fetching
   useEffect(() => {
     const fetchwith = async () => {
@@ -40,17 +28,50 @@ const App = () => {
     searchChange(event.target.value);
   };
 
-  const countryNames = country.map(place => place.name.common);
-  const filteredCountry = countryNames.filter(names => names.toLowerCase().includes(searchvalue))
-  
-  console.log(filteredCountry);
+
+  useEffect(() => {
+    const filtercountries = () => {
+      const countryNames = country.map(place => place.name.common);
+      const filteredCountry = countryNames.filter(names => names.toLowerCase().includes(searchvalue))
+      if (filteredCountry.length === 1) {
+        manyOther(filteredCountry)
+      }
+    }
+
+    filtercountries();
+    },[country, searchvalue]);
+
+
+  //  hooks effect fetching
+  useEffect(() => {
+    const fetching = async () => {
+      const calling = await fetch(`https://api.weatherapi.com/v1/current.json?key=c2e9e7a0f7504931860185111231209 &q=${singleCountry[0]}&aqi=no`);
+      const answer = await calling.json();
+      updateWeather(answer);
+    };
+    fetching();
+    }, [singleCountry]);
+
   console.log(weather);
+
   
   return (
-    <div className= 'container'>
-      <h3> Search</h3>
-      <Searchbox searchChange = {onsearch} />
-    </div>
+      <div className= 'container'>
+        <div className= 'searchbox'>
+          <Searchbox searchChange = {onsearch} />
+        </div>
+        <div className= 'weatherbox'>
+          <div className= 'individualCountry'>
+            <h3> {singleCountry[0]} </h3>
+
+          </div>
+          <div className= 'allcountry'>
+            <h3> This is looking promising </h3>
+
+          </div>
+        </div>
+
+      </div>
   )
   
 }

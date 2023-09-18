@@ -1,28 +1,49 @@
 .container {
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
     
-    justify-content: space-evenly;
-    align-items: center;
     
-    padding: 10px;
+    margin-top: 40px;
+    width: 90%;
+    height: 760px;
+    border-radius: 10px 10px 65px 10px;
+    box-shadow: 15px 7px 15px lightgray;
 
-    border: 2px solid orangered;
-    box-shadow: 5px 5px lightgray;
-    width: auto;
-    
-    border-radius: 5px 5px 20px;
+    text-align: center;
+    background-image: linear-gradient(lightcyan, floralwhite);
+
     font-family: Menlo;
+    font-size: 22px;
+}
+
+.searchbox {
+    padding-top: 20px;
 }
 
 .searchfield {
-
-    width: 250px;
-    height: 40px;
-    border-radius: 5px 5px 20px;
+    width: 30%;
+    height: 50px;
+    border-radius: 5px 10px 25px 5px;
     text-align: center;
 
-    box-shadow: 5px 5px whitesmoke;
-    border: 2px solid orange;
+    border: 3px solid lightcyan;
+    box-shadow: inset 5px 5px 15px lightgray;
+
+/*    outline: none; removes the border*/
+    outline: snow;
+}
+
+.weatherbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+.individualCountry, .allcountry {
+
+    margin-top: 50px;
+    height: 500px;
+    border: 3px solid red;
 }
