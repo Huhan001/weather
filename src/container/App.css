@@ -1,4 +1,5 @@
 .container {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     
@@ -13,7 +14,7 @@
     background-image: linear-gradient(lightcyan, floralwhite);
 
     font-family: Menlo;
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .searchbox {
@@ -21,7 +22,7 @@
 }
 
 .searchfield {
-    width: 30%;
+    width: 24%;
     height: 50px;
     border-radius: 5px 10px 25px 5px;
     text-align: center;
@@ -29,21 +30,37 @@
     border: 3px solid lightcyan;
     box-shadow: inset 5px 5px 15px lightgray;
 
-/*    outline: none; removes the border*/
     outline: snow;
 }
 
 .weatherbox {
     display: flex;
+    flex-direction: column;
+/*    justify-content: start;*/
+    align-items: center;
+
+    height: 650px;
+    border-radius: 10px 10px 65px 10px;
+    margin: 15px;
+
+    box-shadow:inset 5px 5px 15px lightgray;
+}
+
+.header {
+
+    margin-top: 20px;
+
+    display: flex;
     flex-direction: row;
-    justify-content: center;
-    gap: 10px;
 
+    justify-content: space-around;
+    align-items: center;
+    width: 45%;
+    height: 50px;
+    color: orange;
+
+    box-shadow: 5px 5px 15px lightgray;
+    border-radius: 10px ;
+    font-family: Menlo;
 }
 
-.individualCountry, .allcountry {
-
-    margin-top: 50px;
-    height: 500px;
-    border: 3px solid red;
-}

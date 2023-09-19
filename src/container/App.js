@@ -54,20 +54,22 @@ const App = () => {
 
   console.log(weather);
 
-  
+//  time
+  const time = () => {
+    let x = Date();
+    let d = '';
+    d = x.substring(4,10);
+    return d;
+  }
   return (
       <div className= 'container'>
         <div className= 'searchbox'>
           <Searchbox searchChange = {onsearch} />
         </div>
         <div className= 'weatherbox'>
-          <div className= 'individualCountry'>
-            <h3> {singleCountry[0]} </h3>
-
-          </div>
-          <div className= 'allcountry'>
-            <h3> This is looking promising </h3>
-
+          <div className= 'header'>
+            <h4 className= 'country'>{singleCountry[0]} </h4>
+            <h5>{time()}</h5>
           </div>
         </div>
 
