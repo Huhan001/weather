@@ -52,15 +52,9 @@ const App = () => {
     fetching();
     }, [singleCountry]);
 
-  console.log(weather);
 
 //  time
-  const time = () => {
-    let x = Date();
-    let d = '';
-    d = x.substring(4,10);
-    return d;
-  }
+
   return (
       <div className= 'container'>
         <div className= 'searchbox'>
@@ -68,8 +62,8 @@ const App = () => {
         </div>
         <div className= 'weatherbox'>
           <div className= 'header'>
-            <h4 className= 'country'>{singleCountry[0]} </h4>
-            <h5>{time()}</h5>
+            <h4 className= 'country'>{singleCountry.length === 0? 'Loading ...': singleCountry} </h4>
+            <h4>{weather.location?.localtime.substring(11,16)}</h4>
           </div>
         </div>
 
