@@ -1,9 +1,10 @@
 import React from "react";
 
-const Searchbox =  ({searchfiled,searchChange}) => {
+const Searchbox =  ({searchfield,searchChange}) => {
     return (
         <div>
             <input
+                placeholder= 'Country Search'
                 className= 'searchfield'
                 type='search'
                 onChange={searchChange}/>
@@ -13,4 +14,4 @@ const Searchbox =  ({searchfiled,searchChange}) => {
 
 export default Searchbox
 
-// i think i need to export capital letter only. 
+// i think i need to export capital letter only.searchfield

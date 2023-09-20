@@ -52,8 +52,7 @@ const App = () => {
     fetching();
     }, [singleCountry]);
 
-  console.log(weather)
-//  time
+
 
   return (
       <div className= 'container'>
@@ -62,10 +61,11 @@ const App = () => {
         </div>
         <div className= 'weatherbox'>
           <div className= 'header'>
-              <h4 className= 'country'>{singleCountry.length === 0? 'Loading ...': singleCountry} </h4>
+              <h4 className= 'country'>{singleCountry.length === 0? '': singleCountry} </h4>
               <h4>{weather.location?.localtime.substring(11,16)}</h4>
           </div>
         </div>
+        {singleCountry.length === 0? '🌍' :
         <div className='weatherinformation'>
           <div className= 'detailedinfo'>
             <h4>Temp: {weather.current?.temp_c} C</h4>
@@ -81,12 +81,9 @@ const App = () => {
             <h4>Wind : {weather.current?.wind_kph} kph</h4>
             <h4>Condition: {weather.current?.condition.text}</h4>
           </div>
-        </div>
+        </div>}
       </div>
-  )
-  
-
-
-}
+  );
+};
 
 export default App;
