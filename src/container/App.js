@@ -52,6 +52,8 @@ const App = () => {
     fetching();
     }, [singleCountry]);
 
+  console.log(weather)
+
 
 
   return (
@@ -67,20 +69,37 @@ const App = () => {
         </div>
         {singleCountry.length === 0? '🌍' :
         <div className='weatherinformation'>
-          <div className= 'detailedinfo'>
-            <h4>Temp: {weather.current?.temp_c} C</h4>
-            <h4>Feels Like: {weather.current?.feelslike_c} C</h4>
-            <h4>Cloud: {weather.current?.cloud}</h4>
-            <h4>Humidity: {weather.current?.humidity}</h4>
-            <h4>Rain: {weather.current?.precip_in} incH</h4>
+          <div>
+            <div className= 'inforsets'>
+              <h4>Temp: {weather.current?.temp_c} C</h4>
+              <h4>Feels Like: {weather.current?.feelslike_c} C</h4>
+            </div>
+            <hr className= 'line'></hr>
+            <div className= 'inforsets'>
+              <h4>Cloud: {weather.current?.cloud}</h4>
+              <h4>Humidity: {weather.current?.humidity}</h4>
+            </div>
+            <hr className= 'line'></hr>
+
+
+            <div className= 'inforsets'>
+              <h4>Pressure : {weather.current?.pressure_mb} Mb</h4>
+              <h4>Gust mph: {weather.current?.gust_mph}</h4>
+            </div>
+            <hr className= 'line'></hr>
+            <div className= 'inforsets'>
+              <h4>Wind Direction : {weather.current?.wind_dir}</h4>
+              <h4>Wind : {weather.current?.wind_kph} kph</h4>
+            </div>
+            <hr className= 'line'></hr>
+            <div className= 'inforsets'>
+              <h4>Rainfall : {weather.current?.pressure_in} inc</h4>
+              <h4>Outside : {weather.current?.condition.text}</h4>
+            </div>
+            <h1>cloud image here</h1>
+            <h6>james</h6>
           </div>
-          <div className= 'detailedinfo'>
-            <h4>Pressure : {weather.current?.pressure_mb} Mb</h4>
-            <h4>Gust mph: {weather.current?.gust_mph}</h4>
-            <h4>Wind Direction : {weather.current?.wind_dir}</h4>
-            <h4>Wind : {weather.current?.wind_kph} kph</h4>
-            <h4>Condition: {weather.current?.condition.text}</h4>
-          </div>
+
         </div>}
       </div>
   );
