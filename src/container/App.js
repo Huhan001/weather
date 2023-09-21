@@ -102,7 +102,7 @@ const App = () => {
             </div>
             <img alt='weatherIcon' className= 'picture' src={weather.current?.condition.text === 'Clear'? clearClouds: (
               weather.current?.condition.text === 'Sunny'? Sunny: (weather.current?.condition.text === 'Partly cloudy'? partlyCloud:rainyClouds))}></img> <br></br>
-            <h7 className ='name'>❤️ Xayala @copy rights. {Date.now()}</h7>
+            <h7 className ='name'> ❤️ Xayala @copy rights. {Date.now()}</h7>
           </div>
         </div>}
       </div>
