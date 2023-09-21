@@ -52,7 +52,11 @@ const App = () => {
     fetching();
     }, [singleCountry]);
 
-  console.log(weather)
+  let clearClouds = 'https://cdn.pixabay.com/animation/2023/06/13/15/13/15-13-28-428_512.gif'
+  let rainyClouds = 'https://cdn.iconscout.com/icon/free/png-256/free-cloud-rain-3883157-3219522.png?f=webp'
+  let Sunny = 'https://cdn-icons-png.flaticon.com/256/9203/9203275.png'
+  let partlyCloud = 'https://cdn-icons-png.flaticon.com/512/4834/4834559.png'
+
 
 
 
@@ -71,8 +75,8 @@ const App = () => {
         <div className='weatherinformation'>
           <div>
             <div className= 'inforsets'>
-              <h4>Temp: {weather.current?.temp_c} C</h4>
-              <h4>Feels Like: {weather.current?.feelslike_c} C</h4>
+              <h4>Temp: {weather.current?.temp_c} ℃</h4>
+              <h4>Feels Like: {weather.current?.feelslike_c} ℃</h4>
             </div>
             <hr className= 'line'></hr>
             <div className= 'inforsets'>
@@ -93,13 +97,13 @@ const App = () => {
             </div>
             <hr className= 'line'></hr>
             <div className= 'inforsets'>
-              <h4>Rainfall : {weather.current?.pressure_in} inc</h4>
+              <h4>Rainfall : {weather.current?.pressure_in} ⎍</h4>
               <h4>Outside : {weather.current?.condition.text}</h4>
             </div>
-            <h1>cloud image here</h1>
-            <h6>james</h6>
+            <img alt='weatherIcon' className= 'picture' src={weather.current?.condition.text === 'Clear'? clearClouds: (
+              weather.current?.condition.text === 'Sunny'? Sunny: (weather.current?.condition.text === 'Partly cloudy'? partlyCloud:rainyClouds))}></img> <br></br>
+            <h7 className ='name'>❤️ Xayala @copy rights. {Date.now()}</h7>
           </div>
-
         </div>}
       </div>
   );

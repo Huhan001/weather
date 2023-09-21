@@ -99,3 +99,15 @@
     font-size: 22px;
 
 }
+
+.picture {
+    width: 160px;
+    height: 160px;
+}
+
+.name {
+    font-family: Menlo;
+    color: antiquewhite;
+    font-size: 14px;
+    
+}
